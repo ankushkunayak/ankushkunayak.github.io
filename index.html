@@ -4,1161 +4,410 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ankush Kumar Nayak - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --text-color: #333;
-            --text-light: #7f8c8d;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #f9f9f9;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-        }
-        
-        .logo span {
-            color: var(--secondary-color);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d') center/cover;
-            color: white;
-            text-align: center;
-            padding-top: 80px;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-            color: var(--light-color);
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
-            margin-right: 15px;
-            margin-bottom: 15px;
-        }
-        
-        .btn:hover {
-            background-color: #2980b9;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--secondary-color);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background-color: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        
-        .section-title .line {
-            height: 4px;
-            width: 70px;
-            background-color: var(--secondary-color);
-            margin: 0 auto;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .about-img {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
-        }
-        
-        .about-img img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
-        }
-        
-        .about-text h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        .about-text p {
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-        
-        /* Experience Section */
-        .experience {
-            padding: 100px 0;
-            background-color: #f9f9f9;
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: var(--secondary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border: 4px solid var(--secondary-color);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        
-        .timeline-item:nth-child(odd)::after {
-            right: -12px;
-        }
-        
-        .timeline-item:nth-child(even)::after {
-            left: -12px;
-        }
-        
-        .timeline-content {
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline-content h3 {
-            font-size: 20px;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .timeline-content h4 {
-            font-size: 16px;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-        
-        .timeline-content p {
-            font-size: 14px;
-            color: var(--text-light);
-        }
-        
-        /* Education Section */
-        .education {
-            padding: 100px 0;
-            background-color: white;
-        }
-        
-        .education-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-        
-        .education-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            width: 300px;
-            transition: transform 0.3s;
-        }
-        
-        .education-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .education-card h3 {
-            font-size: 20px;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .education-card h4 {
-            font-size: 16px;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-        
-        .education-card p {
-            font-size: 14px;
-            color: var(--text-light);
-        }
-        
-        /* Projects Section */
-        .projects {
-            padding: 100px 0;
-            background-color: #f9f9f9;
-        }
-        
-        .project-categories {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .category-btn {
-            background-color: white;
-            color: var(--text-color);
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .category-btn.active, .category-btn:hover {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .project-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        
-        .project-img {
-            height: 200px;
-            overflow: hidden;
+        .nav-link {
+            position: relative;
         }
-        
-        .project-img img {
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -3px;
+            left: 0;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
         }
-        
-        .project-card:hover .project-img img {
-            transform: scale(1.1);
-        }
-        
-        .project-info {
-            padding: 20px;
-        }
-        
-        .project-info h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
-        .project-info p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-        
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-        }
-        
-        .project-tag {
-            background-color: #e3f2fd;
-            color: var(--secondary-color);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-        
-        /* Skills Section */
-        .skills {
-            padding: 100px 0;
-            background-color: white;
-        }
-        
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        
-        .skill-category {
-            width: 48%;
-            margin-bottom: 40px;
-        }
-        
-        .skill-category h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        .skill-item {
-            margin-bottom: 15px;
-        }
-        
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-        
-        .skill-bar {
-            height: 10px;
-            background-color: #e3e3e3;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background-color: var(--secondary-color);
-            border-radius: 5px;
-        }
-        
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background-color: #f9f9f9;
-        }
-        
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        
-        .contact-info {
-            width: 48%;
-            min-width: 300px;
-        }
-        
-        .contact-info h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--secondary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-            font-size: 20px;
-        }
-        
-        .contact-text h4 {
-            font-size: 18px;
-            color: var(--primary-color);
-        }
-        
-        .contact-text p {
-            color: var(--text-light);
-        }
-        
-        .contact-form {
-            width: 48%;
-            min-width: 300px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-control {
+        .active-nav::after {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        textarea.form-control {
-            height: 150px;
-            resize: none;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        
-        .social-links {
-            margin-bottom: 20px;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 50%;
-            margin: 0 10px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            transition: background-color 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        .footer-text {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item::after {
-                left: 20px;
-            }
-            
-            .skill-category, .contact-info, .contact-form {
-                width: 100%;
-            }
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Ankush<span>Nayak</span></div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow fixed w-full z-10">
+        <div class="container mx-auto px-4 md:px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold text-blue-600">Ankush Kumar Nayak</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="nav-link active-nav text-gray-800 hover:text-blue-600 transition">Home</a>
+                    <a href="#experience" class="nav-link text-gray-800 hover:text-blue-600 transition">Experience</a>
+                    <a href="#education" class="nav-link text-gray-800 hover:text-blue-600 transition">Education</a>
+                    <a href="#projects" class="nav-link text-gray-800 hover:text-blue-600 transition">Projects</a>
+                    <a href="#skills" class="nav-link text-gray-800 hover:text-blue-600 transition">Skills</a>
+                    <a href="#contact" class="nav-link text-gray-800 hover:text-blue-600 transition">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="flex flex-col space-y-3 py-3">
+                    <a href="#home" class="text-gray-800 hover:text-blue-600">Home</a>
+                    <a href="#experience" class="text-gray-800 hover:text-blue-600">Experience</a>
+                    <a href="#education" class="text-gray-800 hover:text-blue-600">Education</a>
+                    <a href="#projects" class="text-gray-800 hover:text-blue-600">Projects</a>
+                    <a href="#skills" class="text-gray-800 hover:text-blue-600">Skills</a>
+                    <a href="#contact" class="text-gray-800 hover:text-blue-600">Contact</a>
+                </div>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Ankush Kumar Nayak</h1>
-                <p>MBA student at IIT Jodhpur with expertise in Marketing, Finance, Analysis, and Strategy.</p>
-                <a href="#projects" class="btn">View Projects</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
+    <section id="home" class="pt-24 pb-12 md:pt-32 md:pb-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Hello, I'm Ankush Kumar Nayak</h1>
+                    <p class="text-xl text-gray-600 mb-6">MBA student at IIT Jodhpur with expertise in Marketing, Finance, Analysis, and Strategy.</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition">Contact Me</a>
+                        <a href="#projects" class="bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-6 rounded-lg border border-blue-600 transition">View Projects</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="/api/placeholder/400/400" alt="Profile" class="rounded-full w-64 h-64 object-cover shadow-xl border-4 border-white">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-                <div class="line"></div>
-            </div>
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="profile-image.jpg" alt="Ankush Kumar Nayak">
+    <section class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">About Me</h2>
+                    <div class="h-1 w-20 bg-blue-600 mb-6"></div>
                 </div>
-                <div class="about-text">
-                    <h3>MBA Student at IIT Jodhpur</h3>
-                    <p>I'm an MBA student at IIT Jodhpur specializing in General Management. With a background in Mechanical Engineering and experience at TCS, I bring analytical thinking and problem
-
-                    <p>solving skills to business challenges.</p>
-                    <p>My academic journey has equipped me with versatile skills across domains including Marketing, Finance, Data Analysis, and Strategy. I've worked on diverse projects from brand development to stock price prediction using time series modeling.</p>
-                    <p>I'm passionate about leveraging data-driven insights to solve business problems and create value. Currently seeking opportunities to apply my skills in a dynamic business environment.</p>
+                <div class="md:w-2/3">
+                    <p class="text-lg text-gray-600 mb-6">
+                        I'm an MBA student at IIT Jodhpur specializing in General Management. With a background in Mechanical Engineering and experience at TCS, I bring analytical thinking and problem-solving skills to business challenges.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        My academic journey has equipped me with versatile skills across domains including Marketing, Finance, Data Analysis, and Strategy. I've worked on diverse projects from brand development to stock price prediction using time series modeling.
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        I'm passionate about leveraging data-driven insights to solve business problems and create value. Currently seeking opportunities to apply my skills in a dynamic business environment.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section class="experience" id="experience">
-        <div class="container">
-            <div class="section-title">
-                <h2>Experience</h2>
-                <div class="line"></div>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Project Management Intern</h3>
-                        <h4>Aditya Birla Group - Group Data and Analytics</h4>
-                        <p>May 2024 - Sept 2024 | Bangalore, Karnataka</p>
-                        <ul>
-                            <li>Performed in-depth research and analysis on AI and ML-driven impact on the copper industry, identifying future demand trends for copper utilization over the next 5 to 10 years.</li>
-                            <li>Developed actionable insights and recommendations on copper demand trends, advising existing and new customer acquisition strategies based on AI-driven market forecasts.</li>
-                            <li>Presented findings and recommendations to senior management, contributing to improved market positioning and strategic initiatives for Hindalco.</li>
-                        </ul>
+    <section id="experience" class="py-12 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Professional Experience</h2>
+            <div class="h-1 w-20 bg-blue-600 mb-12 mx-auto"></div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- Aditya Birla Group -->
+                <div class="mb-12">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Aditya Birla Group - Group Data and Analytics</h3>
+                        <span class="text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full">May 2024 - Sept 2024</span>
                     </div>
+                    <p class="text-gray-600 italic mb-4">Project Management Intern | Bangalore, Karnataka</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex">
+                            <span class="text-blue-600 mr-2">•</span>
+                            <span>Performed in-depth research and analysis on AI and ML-driven impact on the copper industry, identifying future demand trends for copper utilization over the next 5 to 10 years.</span>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-2">•</span>
+                            <span>Developed actionable insights and recommendations on copper demand trends, advising existing and new customer acquisition strategies based on AI-driven market forecasts.</span>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-2">•</span>
+                            <span>Presented findings and recommendations to senior management, contributing to improved market positioning and strategic initiatives for Hindalco.</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Assistant System Engineer</h3>
-                        <h4>Tata Consultancy Services</h4>
-                        <p>June 2021 - Sept 2022 | Pune, Maharashtra</p>
-                        <ul>
-                            <li>Supported the technical up-gradation of Johnson & Johnson's Documentum applications (RIMDOCS and JANDOCS), ensuring smooth transition and improved operational efficiency.</li>
-                            <li>Collaborated with cross-functional teams on Agile development for enhancing RIMDOCS applications, ensuring timely project completion within 95% of given SLAs and high customer satisfaction.</li>
-                            <li>Analyzed data and reports to identify gaps, improve productivity, and streamline operational processes, using SQL and Excel to facilitate data-driven decision-making.</li>
-                            <li>Tools used: Jira, SQL, Excel, Documentum</li>
-                        </ul>
+                
+                <!-- TCS -->
+                <div class="mb-12">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Tata Consultancy Services</h3>
+                        <span class="text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full">June 2021 - Sept 2022</span>
                     </div>
+                    <p class="text-gray-600 italic mb-4">Assistant System Engineer | Pune, Maharashtra</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex">
+                            <span class="text-blue-600 mr-2">•</span>
+                            <span>Supported the technical up-gradation of Johnson & Johnson's Documentum applications (RIMDOCS and JANDOCS), ensuring smooth transition and improved operational efficiency.</span>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-2">•</span>
+                            <span>Collaborated with cross-functional teams on Agile development for enhancing RIMDOCS applications, ensuring timely project completion within 95% of given SLAs and high customer satisfaction.</span>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-2">•</span>
+                            <span>Analyzed data and reports to identify gaps, improve productivity, and streamline operational processes, using SQL and Excel to facilitate data-driven decision-making.</span>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-2">•</span>
+                            <span>Tools used: Jira, SQL, Excel, Documentum</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Program Coordinator Intern</h3>
-                        <h4>Dhaikhai Jubak Sangha</h4>
-                        <p>Dec 2023 | Bhubaneswar, Odisha</p>
-                        <ul>
-                            <li>Organized social events and community engagement initiatives.</li>
-                            <li>Ensured alignment of activities with the plan and promptly addressed challenges.</li>
-                            <li>Contributed to the development of new programs and delineated clear goals.</li>
-                        </ul>
+                
+                <!-- Dhaikhai Jubak Sangha -->
+                <div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Dhaikhai Jubak Sangha</h3>
+                        <span class="text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full">Dec 2023</span>
                     </div>
+                    <p class="text-gray-600 italic mb-4">Program Coordinator Intern | Bhubaneswar, Odisha</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex">
+                            <span class="text-blue-600 mr-2">•</span>
+                            <span>Organized social events and community engagement initiatives.</span>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-2">•</span>
+                            <span>Ensured alignment of activities with the plan and promptly addressed challenges.</span>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-2">•</span>
+                            <span>Contributed to the development of new programs and delineated clear goals.</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Education Section -->
-    <section class="education" id="education">
-        <div class="container">
-            <div class="section-title">
-                <h2>Education</h2>
-                <div class="line"></div>
-            </div>
-            <div class="education-cards">
-                <div class="education-card">
-                    <h3>MBA in General Management</h3>
-                    <h4>Indian Institute of Technology, Jodhpur</h4>
-                    <p>2023 - 2025</p>
-                    <p>CGPA: 7.60</p>
-                </div>
-                <div class="education-card">
-                    <h3>B.Tech in Mechanical Engineering</h3>
-                    <h4>C V Raman Global University, Odisha</h4>
-                    <p>2017 - 2021</p>
-                    <p>CGPA: 8.18</p>
-                </div>
-                <div class="education-card">
-                    <h3>Senior Secondary</h3>
-                    <h4>CBSE Board</h4>
-                    <p>2016</p>
-                    <p>Percentage: 80.4%</p>
-                </div>
-                <div class="education-card">
-                    <h3>Secondary</h3>
-                    <h4>CBSE Board</h4>
-                    <p>2014</p>
-                    <p>Percentage: 95%</p>
+    <section id="education" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Education</h2>
+            <div class="h-1 w-20 bg-blue-600 mb-12 mx-auto"></div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-10">
+                    <!-- IIT Jodhpur -->
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/4 mb-4 md:mb-0">
+                            <div class="p-4 bg-blue-50 rounded-lg inline-block">
+                                <span class="font-bold text-blue-600">2023-2025</span>
+                            </div>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">MBA in General Management</h3>
+                            <p class="text-gray-600 mb-2">Indian Institute of Technology, Jodhpur</p>
+                            <p class="text-gray-600">CGPA: 7.60</p>
+                        </div>
+                    </div>
+                    
+                    <!-- CV Raman Global University -->
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/4 mb-4 md:mb-0">
+                            <div class="p-4 bg-blue-50 rounded-lg inline-block">
+                                <span class="font-bold text-blue-600">2017-2021</span>
+                            </div>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">B.Tech in Mechanical Engineering</h3>
+                            <p class="text-gray-600 mb-2">C V Raman Global University, Odisha</p>
+                            <p class="text-gray-600">CGPA: 8.18</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Senior Secondary -->
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/4 mb-4 md:mb-0">
+                            <div class="p-4 bg-blue-50 rounded-lg inline-block">
+                                <span class="font-bold text-blue-600">2016</span>
+                            </div>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">Senior Secondary</h3>
+                            <p class="text-gray-600 mb-2">CBSE Board</p>
+                            <p class="text-gray-600">Percentage: 80.4%</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Secondary -->
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/4 mb-4 md:mb-0">
+                            <div class="p-4 bg-blue-50 rounded-lg inline-block">
+                                <span class="font-bold text-blue-600">2014</span>
+                            </div>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">Secondary</h3>
+                            <p class="text-gray-600 mb-2">CBSE Board</p>
+                            <p class="text-gray-600">Percentage: 95%</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-title">
-                <h2>Projects</h2>
-                <div class="line"></div>
-            </div>
-            <div class="project-categories">
-                <button class="category-btn active" data-filter="all">All</button>
-                <button class="category-btn" data-filter="marketing">Marketing</button>
-                <button class="category-btn" data-filter="finance">Finance</button>
-                <button class="category-btn" data-filter="analysis">Analysis</button>
-                <button class="category-btn" data-filter="strategy">Strategy</button>
-            </div>
-            <div class="projects-grid">
-                <!-- Marketing Projects -->
-                <div class="project-card" data-category="marketing">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Le Le Laymanz">
-                    </div>
-                    <div class="project-info">
-                        <h3>Le Le Laymanz</h3>
-                        <p>Marketing campaign for a youthful lemonade brand, incorporating unique positioning, tagline creation, and visual branding strategies. Designed multi-channel marketing initiatives to drive brand awareness.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Brand Development</span>
-                            <span class="project-tag">Marketing Strategy</span>
-                            <span class="project-tag">Campaign Design</span>
-                        </div>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
-                </div>
-
-                <!-- Finance Projects -->
-                <div class="project-card" data-category="finance">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Stock Price Prediction">
-                    </div>
-                    <div class="project-info">
-                        <h3>Stock Price Prediction Using Time Series Modeling</h3>
-                        <p>Analyzed 806 daily closing price observations of Zomato from its IPO to Oct 2024 using ARIMA(1,1,0) model with stationarity tests and model selection to achieve 2.26% Mean Absolute Percentage Error.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Time Series Analysis</span>
-                            <span class="project-tag">ARIMA Modeling</span>
-                            <span class="project-tag">Stock Prediction</span>
-                        </div>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="finance">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Relaxo CF Project">
-                    </div>
-                    <div class="project-info">
-                        <h3>Relaxo CF Project</h3>
-                        <p>Comprehensive financial analysis of Relaxo Footwear Limited including balance sheet analysis, stock market performance, dividend policy evaluation, and beta estimation.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Financial Analysis</span>
-                            <span class="project-tag">Dividend Policy</span>
-                            <span class="project-tag">Beta Estimation</span>
-                        </div>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
-                </div>
-
-                <!-- Analysis Projects -->
-                <div class="project-card" data-category="analysis">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="GA2">
-                    </div>
-                    <div class="project-info">
-                        <h3>GA2</h3>
-                        <p>Analyzed the price elasticity of demand for beer in India, examining factors like household incomes, expenditure patterns, and education levels to understand consumer sensitivity to price changes.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Price Elasticity</span>
-                            <span class="project-tag">Consumer Behavior</span>
-                            <span class="project-tag">Market Analysis</span>
-                        </div>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="analysis">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Group 4_A">
-                    </div>
-                    <div class="project-info">
-                        <h3>Food Outlet Analysis</h3>
-                        <p>Surveyed students and analyzed spending patterns to develop a MLR model (R² = 0.7756) to evaluate key spending factors and identified an unmet demand for quality food options on campus.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Data Analysis</span>
-                            <span class="project-tag">Regression Modeling</span>
-                            <span class="project-tag">Market Research</span>
-                        </div>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="analysis">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Telecom Customer Retention">
-                    </div>
-                    <div class="project-info">
-                        <h3>Predicting Customer Retention in the Telecom Industry</h3>
-                        <p>Developed a machine learning model to predict customer churn in the telecom industry based on usage patterns, service subscriptions, and demographic information.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Machine Learning</span>
-                            <span class="project-tag">Customer Retention</span>
-                            <span class="project-tag">Predictive Analytics</span>
-                        </div>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
-                </div>
-
-                <!-- Strategy Projects -->
-                <div class="project-card" data-category="strategy">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Online Food Delivery Industry">
-                    </div>
-                    <div class="project-info">
-                        <h3>Online Food Delivery Industry</h3>
-                        <p>Conducted an in-depth industry analysis of the online food delivery market using Porter's Five Forces and SCP framework to evaluate market structure, competitive dynamics, and barriers to entry.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Industry Analysis</span>
-                            <span class="project-tag">Porter's Five Forces</span>
-                            <span class="project-tag">Market Structure</span>
-                        </div>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="strategy">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Zomato">
-                    </div>
-                    <div class="project-info">
-                        <h3>Zomato</h3>
-                        <p>Strategic analysis of Zomato's business model, financial performance, and growth strategies using frameworks like BCG Matrix and VRIO to identify competitive advantages and expansion opportunities.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Strategic Analysis</span>
-                            <span class="project-tag">Business Model</span>
-                            <span class="project-tag">Competitive Advantage</span>
-                        </div>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
+    <section id="projects" class="py-12 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Projects</h2>
+            <div class="h-1 w-20 bg-blue-600 mb-6 mx-auto"></div>
+            
+            <div class="mb-10">
+                <div class="flex justify-center space-x-2 md:space-x-4">
+                    <button class="project-filter active bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition" data-filter="all">All</button>
+                    <button class="project-filter bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-4 rounded border border-blue-600 transition" data-filter="marketing">Marketing</button>
+                    <button class="project-filter bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-4 rounded border border-blue-600 transition" data-filter="finance">Finance</button>
+                    <button class="project-filter bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-4 rounded border border-blue-600 transition" data-filter="analysis">Analysis</button>
+                    <button class="project-filter bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-4 rounded border border-blue-600 transition" data-filter="strategy">Strategy</button>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <div class="container">
-            <div class="section-title">
-                <h2>Skills</h2>
-                <div class="line"></div>
-            </div>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Technical Skills</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Excel</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Marketing Project -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 project-item marketing">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-glass-martini-alt text-6xl text-blue-500"></i>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Power BI</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>PowerPoint</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Python</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>R</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>SQL</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Zoho CRM</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%;"></div>
-                        </div>
+                    <div class="p-6">
+                        <span class="text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full">Marketing</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">Le Le Laymanz</h3>
+                        <p class="text-gray-600 mb-4">Marketing campaign for a youthful lemonade brand, incorporating unique positioning, tagline creation, and visual branding strategies. Designed multi-channel marketing initiatives to drive brand awareness.</p>
+                        <button class="project-details-btn text-blue-600 font-medium hover:text-blue-800 transition flex items-center" data-project="lelemanz">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Soft Skills</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Critical and Analytical Thinking</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Interpersonal Communication</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Dealing with Ambiguity</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Problem Solving</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Leadership</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Teamwork</span>
-                            <span>90%</span>
-                        </div>
-                        <div
-
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Me</h2>
-                <div class="line"></div>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Location</h4>
-                            <p>IIT Jodhpur, Rajasthan, India</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Email</h4>
-                            <p>ankushnayak@iitj.ac.in</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Phone</h4>
-                            <p>+91 XXXXXXXXXX</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Website</h4>
-                            <p>ankushnayak.github.io</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" placeholder="Your Message"></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/ankush-kumar-nayak/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/ankushnayak" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:ankushnayak@iitj.ac.in"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p class="footer-text">&copy; 2025 Ankush Kumar Nayak. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Project filtering
-        const categoryBtns = document.querySelectorAll('.category-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        categoryBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                categoryBtns.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
                 
-                const filter = btn.dataset.filter;
+                <!-- Finance Project 1 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 project-item finance">
+                    <div class="h-48 bg-green-100 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-6xl text-green-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-sm font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full">Finance</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">Stock Price Prediction Using Time Series Modeling</h3>
+                        <p class="text-gray-600 mb-4">Analyzed 806 daily closing price observations of Zomato from its IPO to Oct 2024 using ARIMA(1,1,0) model with stationarity tests and model selection to achieve 2.26% Mean Absolute Percentage Error.</p>
+                        <button class="project-details-btn text-green-600 font-medium hover:text-green-800 transition flex items-center" data-project="stockprediction">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
                 
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Fixed header on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.backgroundColor = 'rgba(44, 62, 80, 0.9)';
-            } else {
-                header.style.backgroundColor = 'var(--primary-color)';
-            }
-        });
-    </script>
-</body>
-</html>
+                <!-- Finance Project 2 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 project-item finance">
+                    <div class="h-48 bg-green-100 flex items-center justify-center">
+                        <i class="fas fa-file-invoice-dollar text-6xl text-green-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-sm font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full">Finance</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">Relaxo Financial Analysis</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive financial analysis of Relaxo Footwear Limited including balance sheet analysis, stock market performance, dividend policy evaluation, and beta estimation.</p>
+                        <button class="project-details-btn text-green-600 font-medium hover:text-green-800 transition flex items-center" data-project="relaxo">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Analysis Project 1 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 project-item analysis">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-beer text-6xl text-purple-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-sm font-medium text-purple-600 bg-purple-100 px-3 py-1 rounded-full">Analysis</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">Price Elasticity of Demand for Beer in India</h3>
+                        <p class="text-gray-600 mb-4">Analyzed the price elasticity of demand for beer in India, examining factors like household incomes, expenditure patterns, and education levels to understand consumer sensitivity to price changes.</p>
+                        <button class="project-details-btn text-purple-600 font-medium hover:text-purple-800 transition flex items-center" data-project="beerelasticity">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Analysis Project 2 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 project-item analysis">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-utensils text-6xl text-purple-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-sm font-medium text-purple-600 bg-purple-100 px-3 py-1 rounded-full">Analysis</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">Food Outlet Analysis: IIT Jodhpur</h3>
+                        <p class="text-gray-600 mb-4">Surveyed students and analyzed spending patterns to develop a MLR model (R² = 0.7756) to evaluate key spending factors and identified an unmet demand for quality food options on campus.</p>
+                        <button class="project-details-btn text-purple-600 font-medium hover:text-purple-800 transition flex items-center" data-project="foodoutlet">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Analysis Project 3 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 project-item analysis">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-6xl text-purple-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-sm font-medium text-purple-600 bg-purple-100 px-3 py-1 rounded-full">Analysis</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">Predicting Customer Retention in Telecom Industry</h3>
+                        <p class="text-gray-600 mb-4">Developed a machine learning model to predict customer churn in the telecom industry based on usage patterns, service subscriptions, and demographic information.</p>
+                        <button class="project-details-btn text-purple-600 font-medium hover:text-purple-800 transition flex items-center" data-project="telecomchurn">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Strategy Project 1 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 project-item strategy">
+                    <div class="h-48 bg-red-100 flex items-center justify-center">
+                        <i class="fas fa-truck-loading text-6xl text-red-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-sm font-medium text-red-600 bg-red-100 px-3 py-1 rounded-full">Strategy</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">Online Food Delivery Industry Analysis</h3>
+                        <p class="text-gray-600 mb-4">Conducted an in-depth industry analysis of the online food delivery market using Porter's Five Forces and SCP framework to evaluate market structure, competitive dynamics, and barriers to entry.</p>
+                        <button class="project-details-btn text-red-600 font-medium hover:text-red-800 transition flex items-center" data-project="fooddelivery">
+                            View Details
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Strategy Project 2 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 project-item strategy">
+                    <div class="h-48 bg-red-100 flex items-center justify-center">
+                        <i class="fas fa-hamburger text-6xl text-red-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-sm font-medium text-red-600 bg-red-100 px-3 py-1 rounded-full">Strategy</span>
+                        
